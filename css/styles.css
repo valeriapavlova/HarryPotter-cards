@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Gryffindor { --house-color: #740001; }
+.Slytherin  { --house-color: #1a472a; }
+.Hufflepuff { --house-color: #ecb939; }
+.Ravenclaw  { --house-color: #222f5b; }
+.potter-card { --house-color: #555; } 
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    & img {
+        width: 200px;
+    }
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    & .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
+
+        & .potter-card {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff; 
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+
+            & :hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            }
+
+            & .potter-card__image-box {
+                position: relative; /* Anchor for the absolute overlay */
+                width: 100%;
+                height: 250px; /* Fixed height for image area */
+                overflow: hidden;
+
+                & .potter-card__img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
